@@ -28,7 +28,7 @@ export const navLinks = [
 
 export const socialLinks = {
   instagram: 'https://www.instagram.com/adhivinayaga/',
-  facebook: 'https://www.facebook.com/adhivinayaga',
+  facebook: 'https://www.facebook.com/Jagadesh.Finance',
   whatsapp: 'https://wa.me/919042821165',
 };
 

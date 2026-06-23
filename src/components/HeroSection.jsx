@@ -19,7 +19,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: 'easeOut' }}
         >
-          <p className="eyebrow">Auto Consulting & Vehicle Finance</p>
+          <p className="eyebrow">Auto Consulting - Vehicle Finance - Gold Finance</p>
           <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">
             Drive Your Dreams With Trusted Vehicle Finance
           </h1>

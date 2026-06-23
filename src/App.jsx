@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
@@ -32,6 +33,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-ivory text-charcoal">
+      <ScrollToTop />
       <Navbar />
       <AnimatePresence mode="wait">
         <Suspense fallback={<PageFallback />}>
