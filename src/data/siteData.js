@@ -1,12 +1,12 @@
 import {
   FaCarSide,
   FaClipboardCheck,
+  FaCoins,
   FaFileSignature,
   FaHandshake,
   FaHeadset,
   FaMotorcycle,
   FaShieldAlt,
-  FaStar,
   FaUniversity,
   FaWallet,
 } from 'react-icons/fa';
@@ -24,9 +24,13 @@ export const navLinks = [
   { label: 'Services', path: '/services' },
   { label: 'EMI Calculator', path: '/emi-calculator' },
   { label: 'Gallery', path: '/gallery' },
-  { label: 'Testimonials', path: '/testimonials' },
-  { label: 'Contact', path: '/contact' },
 ];
+
+export const socialLinks = {
+  instagram: 'https://www.instagram.com/adhivinayaga/',
+  facebook: 'https://www.facebook.com/adhivinayaga',
+  whatsapp: 'https://wa.me/919042821165',
+};
 
 export const services = [
   {
@@ -43,6 +47,11 @@ export const services = [
     title: 'Used Vehicle Finance',
     icon: FaCarSide,
     text: 'Easy financing support for pre-owned cars, bikes, and verified vehicle purchases.',
+  },
+  {
+    title: 'Gold Finance',
+    icon: FaCoins,
+    text: 'Quick gold loan guidance with clear valuation, document support, and flexible repayment options.',
   },
   {
     title: 'Documentation Support',
@@ -99,6 +108,11 @@ export const financeServices = [
     text: 'Support for pre-owned vehicle finance with transparent eligibility and valuation guidance.',
   },
   {
+    title: 'Gold Finance',
+    icon: FaCoins,
+    text: 'Loan consultation against gold with transparent valuation guidance and simple documentation support.',
+  },
+  {
     title: 'Commercial Vehicle Assistance',
     icon: FaUniversity,
     text: 'Consultation for business-focused vehicle needs, ownership planning, and finance readiness.',
@@ -112,39 +126,7 @@ export const financeFeatures = [
   'Customer-Friendly Repayment Support',
   'Flexible Loan Structures',
   'Personalized Consultation',
-];
-
-export const testimonials = [
-  {
-    name: 'R. Prakash',
-    role: 'Car Finance Customer',
-    quote: 'The loan process was smooth and transparent. Highly recommended.',
-  },
-  {
-    name: 'M. Kavitha',
-    role: 'Two Wheeler Finance Customer',
-    quote: 'Excellent support throughout vehicle financing.',
-  },
-  {
-    name: 'S. Aravind',
-    role: 'Used Vehicle Customer',
-    quote: 'Quick approval and professional guidance from the first call.',
-  },
-  {
-    name: 'N. Suresh',
-    role: 'Documentation Support Customer',
-    quote: 'They explained every step clearly and helped complete the paperwork without stress.',
-  },
-  {
-    name: 'P. Meena',
-    role: 'Insurance Guidance Customer',
-    quote: 'A trustworthy team with patient guidance and very clear finance advice.',
-  },
-  {
-    name: 'K. Dinesh',
-    role: 'Four Wheeler Finance Customer',
-    quote: 'The EMI plan was explained properly, and approval happened faster than expected.',
-  },
+  'Gold Loan Guidance',
 ];
 
 export const gallery = [
@@ -179,5 +161,3 @@ export const gallery = [
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80',
   },
 ];
-
-export const starArray = Array.from({ length: 5 }, (_, index) => ({ id: index, icon: FaStar }));

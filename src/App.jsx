@@ -9,8 +9,12 @@ const About = lazy(() => import('./pages/About.jsx'));
 const Services = lazy(() => import('./pages/Services.jsx'));
 const EMICalculator = lazy(() => import('./pages/EMICalculator.jsx'));
 const Gallery = lazy(() => import('./pages/Gallery.jsx'));
-const TestimonialsPage = lazy(() => import('./pages/TestimonialsPage.jsx'));
-const Contact = lazy(() => import('./pages/Contact.jsx'));
+const VehicleDetails = lazy(() => import('./pages/VehicleDetails.jsx'));
+const EmployeeLogin = lazy(() => import('./pages/EmployeeLogin.jsx'));
+const EmployeeDashboard = lazy(() => import('./pages/EmployeeDashboard.jsx'));
+const AddVehicle = lazy(() => import('./pages/AddVehicle.jsx'));
+const EditVehicle = lazy(() => import('./pages/EditVehicle.jsx'));
+const ProtectedRoute = lazy(() => import('./components/ProtectedRoute.jsx'));
 
 function PageFallback() {
   return (
@@ -37,8 +41,32 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/emi-calculator" element={<EMICalculator />} />
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/testimonials" element={<TestimonialsPage />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery/vehicle/:id" element={<VehicleDetails />} />
+            <Route path="/employee/login" element={<EmployeeLogin />} />
+            <Route
+              path="/employee/dashboard"
+              element={
+                <ProtectedRoute>
+                  <EmployeeDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/employee/vehicle/new"
+              element={
+                <ProtectedRoute>
+                  <AddVehicle />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/employee/vehicle/:id/edit"
+              element={
+                <ProtectedRoute>
+                  <EditVehicle />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </Suspense>
       </AnimatePresence>

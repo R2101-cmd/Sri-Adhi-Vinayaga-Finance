@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
-import { business, navLinks, services } from '../data/siteData.js';
+import { FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { business, navLinks, services, socialLinks } from '../data/siteData.js';
 
 export default function Footer() {
   return (
@@ -9,14 +9,18 @@ export default function Footer() {
         <div>
           <h2 className="font-display text-2xl font-extrabold text-gold">{business.shortName}</h2>
           <p className="mt-4 leading-7 text-ivory/70">
-            Trusted auto consulting, vehicle finance, loan consultation, documentation assistance, and insurance guidance in Erode.
+            Trusted auto consulting, vehicle finance, gold finance, loan consultation, documentation assistance and insurance guidance in Erode.
           </p>
           <div className="mt-6 flex gap-3">
-            {[FaFacebookF, FaInstagram, FaLinkedinIn].map((Icon, index) => (
-              <a key={index} className="grid h-10 w-10 place-items-center rounded-md bg-ivory/10 text-gold transition hover:bg-gold hover:text-charcoal" href="#" aria-label="Social media">
-                <Icon />
-              </a>
-            ))}
+            <a className="grid h-10 w-10 place-items-center rounded-md bg-ivory/10 text-gold transition hover:bg-gold hover:text-charcoal" href={socialLinks.facebook} target="_blank" rel="noreferrer" aria-label="Open Facebook">
+              <FaFacebookF />
+            </a>
+            <a className="grid h-10 w-10 place-items-center rounded-md bg-ivory/10 text-gold transition hover:bg-gold hover:text-charcoal" href={socialLinks.instagram} target="_blank" rel="noreferrer" aria-label="Open Instagram">
+              <FaInstagram />
+            </a>
+            <a className="grid h-10 w-10 place-items-center rounded-md bg-ivory/10 text-gold transition hover:bg-gold hover:text-charcoal" href={socialLinks.whatsapp} target="_blank" rel="noreferrer" aria-label="Open WhatsApp">
+              <FaWhatsapp />
+            </a>
           </div>
         </div>
         <div>
@@ -27,6 +31,9 @@ export default function Footer() {
                 {link.label}
               </NavLink>
             ))}
+            <NavLink to="/employee/login" className="mt-2 inline-flex w-fit items-center rounded-md border border-gold/50 px-4 py-2 text-sm font-extrabold text-gold transition hover:bg-gold hover:text-charcoal">
+              Employee Login
+            </NavLink>
           </div>
         </div>
         <div>
@@ -47,7 +54,7 @@ export default function Footer() {
           </p>
           <p className="mt-4 flex gap-3 text-ivory/72">
             <FaPhoneAlt className="text-gold" />
-            Enquiry support available at office
+            +91 90428 21165
           </p>
         </div>
       </div>

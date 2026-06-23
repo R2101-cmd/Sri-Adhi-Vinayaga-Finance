@@ -4,9 +4,8 @@ import CounterSection from '../components/CounterSection.jsx';
 import HeroSection from '../components/HeroSection.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
-import Testimonials from '../components/Testimonials.jsx';
 import Reveal from '../components/Reveal.jsx';
-import { services, testimonials, whyChoose } from '../data/siteData.js';
+import { services, whyChoose } from '../data/siteData.js';
 
 export default function Home() {
   return (
@@ -50,13 +49,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section-pad">
-        <div className="container-max">
-          <SectionHeading eyebrow="Customer Voices" title="Trusted By Vehicle Buyers" />
-          <Testimonials items={testimonials.slice(0, 3)} />
         </div>
       </section>
     </AnimatedPage>

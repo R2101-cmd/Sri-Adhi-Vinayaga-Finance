@@ -10,22 +10,26 @@ function formatCurrency(value) {
 }
 
 export default function EMICalculator() {
-  const [vehicleCost, setVehicleCost] = useState(850000);
-  const [downPayment, setDownPayment] = useState(150000);
-  const [interestRate, setInterestRate] = useState(9.5);
-  const [tenure, setTenure] = useState(48);
+  const [loanAmount, setLoanAmount] = useState('14000');
+const [interestRate, setInterestRate] = useState('2');
+const [tenure, setTenure] = useState('10');
 
-  const result = useMemo(() => {
-    const principal = Math.max(vehicleCost - downPayment, 0);
-    const monthlyRate = interestRate / 12 / 100;
-    const emi =
-      monthlyRate === 0
-        ? principal / Math.max(tenure, 1)
-        : (principal * monthlyRate * (1 + monthlyRate) ** tenure) / ((1 + monthlyRate) ** tenure - 1);
-    const totalPayable = emi * tenure;
-    const totalInterest = totalPayable - principal;
-    return { principal, emi, totalPayable, totalInterest };
-  }, [vehicleCost, downPayment, interestRate, tenure]);
+const result = useMemo(() => {
+  const principal = loanAmount === '' ? 0 : Number(loanAmount);
+  const rate = interestRate === '' ? 0 : Number(interestRate);
+  const months = tenure === '' ? 0 : Number(tenure);
+
+  const totalInterest = (principal * rate * months) / 100;
+  const totalPayable = principal + totalInterest;
+  const emi = months > 0 ? totalPayable / months : 0;
+
+  return {
+    principal,
+    emi,
+    totalPayable,
+    totalInterest,
+  };
+}, [loanAmount, interestRate, tenure]);
 
   const chartData = [
     { name: 'Principal', value: Math.round(result.principal), color: '#0F4C45' },
@@ -45,20 +49,16 @@ export default function EMICalculator() {
             <div className="rounded-lg bg-white p-6 shadow-premium">
               <div className="grid gap-5">
                 <label className="grid gap-2 font-bold text-emeraldDeep">
-                  Vehicle Cost
-                  <input className={fieldClass} type="number" value={vehicleCost} onChange={(event) => setVehicleCost(Number(event.target.value))} />
+                  Loan Amount
+                  <input className={fieldClass} type="number" value={loanAmount} onChange={(event) => setLoanAmount((event.target.value))} />
                 </label>
                 <label className="grid gap-2 font-bold text-emeraldDeep">
-                  Down Payment
-                  <input className={fieldClass} type="number" value={downPayment} onChange={(event) => setDownPayment(Number(event.target.value))} />
-                </label>
-                <label className="grid gap-2 font-bold text-emeraldDeep">
-                  Interest Rate (%)
-                  <input className={fieldClass} type="number" step="0.1" value={interestRate} onChange={(event) => setInterestRate(Number(event.target.value))} />
+                  Interest Rate (%) Per Month
+                  <input className={fieldClass} type="number" step="0.1" value={interestRate} onChange={(event) => setInterestRate((event.target.value))} />
                 </label>
                 <label className="grid gap-2 font-bold text-emeraldDeep">
                   Loan Tenure (Months)
-                  <input className={fieldClass} type="number" value={tenure} onChange={(event) => setTenure(Number(event.target.value))} />
+                  <input className={fieldClass} type="number" value={tenure} onChange={(event) => setTenure((event.target.value))} />
                 </label>
               </div>
             </div>
