@@ -54,7 +54,7 @@ export default function About() {
             <Reveal delay={0.08}>
               <div className="rounded-lg border border-emeraldDeep/10 bg-white p-7 shadow-sm">
                 <h3 className="text-xl font-extrabold text-emeraldDeep">Vision</h3>
-                <p className="mt-3 leading-8 text-charcoal/72">To become the most trusted auto finance and consulting partner in Tamil Nadu.</p>
+                <p className="mt-3 leading-8 text-charcoal/72">To be a dependable auto finance and consulting partner for customers in Erode and Tamil Nadu.</p>
               </div>
             </Reveal>
           </div>

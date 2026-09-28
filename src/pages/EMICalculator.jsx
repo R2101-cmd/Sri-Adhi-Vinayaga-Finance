@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 import AnimatedPage from '../components/AnimatedPage.jsx';
+import Reveal from '../components/Reveal.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 
 const fieldClass = 'focus-ring w-full rounded-md border border-emeraldDeep/14 bg-white px-4 py-3 text-charcoal';
@@ -45,7 +46,7 @@ const result = useMemo(() => {
             title="Plan your vehicle finance before you apply"
             text="Estimate monthly EMI, total interest, and total payable amount based on vehicle cost, down payment, interest rate, and loan tenure."
           />
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-lg bg-white p-6 shadow-premium">
               <div className="grid gap-5">
                 <label className="grid gap-2 font-bold text-emeraldDeep">
@@ -91,7 +92,7 @@ const result = useMemo(() => {
                 </ResponsiveContainer>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </AnimatedPage>

@@ -5,7 +5,7 @@ import Reveal from '../components/Reveal.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import { financeFeatures, financeServices } from '../data/siteData.js';
 
-const benefits = ['Fast Processing', 'Flexible EMI Plans', 'Competitive Interest Rates', 'Minimal Paperwork', 'Personalized Consultation'];
+const benefits = ['Eligibility discussion', 'Repayment planning', 'Document preparation guidance', 'Personalized consultation', 'Support through the enquiry process'];
 
 export default function Services() {
   return (

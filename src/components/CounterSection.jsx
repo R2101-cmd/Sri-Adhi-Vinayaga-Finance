@@ -1,55 +1,46 @@
-import { useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { stats } from '../data/siteData.js';
-
-function Counter({ value, suffix }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
-
-  useEffect(() => {
-    if (!inView) return;
-    let frame;
-    const start = performance.now();
-    const duration = 1400;
-    const animate = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      setCount(Math.floor(progress * value));
-      if (progress < 1) frame = requestAnimationFrame(animate);
-    };
-    frame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frame);
-  }, [inView, value]);
-
-  return (
-    <span ref={ref}>
-      {count.toLocaleString('en-IN')}
-      {suffix}
-    </span>
-  );
-}
+import { motion, useReducedMotion } from 'framer-motion';
+import { FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { business, socialLinks, stats } from '../data/siteData.js';
 
 export default function CounterSection() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="emerald-gradient px-5 py-12 text-ivory sm:px-8 lg:px-12">
-      <div className="container-max grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat, index) => (
-          <motion.div
-            key={stat.label}
-            className="rounded-lg border border-ivory/12 bg-ivory/8 p-6 text-center"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: index * 0.08 }}
-          >
-            <p className="font-display text-4xl font-extrabold text-gold">
-              <Counter value={stat.value} suffix={stat.suffix} />
-            </p>
-            <p className="mt-2 text-sm font-bold uppercase tracking-[0.16em] text-ivory/75">{stat.label}</p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+    <>
+      <section className="border-b border-emeraldDeep/10 bg-white px-5 py-5 sm:px-8 lg:px-12">
+        <div className="container-max grid gap-3 text-sm text-emeraldDeep sm:grid-cols-3 sm:gap-6">
+          <a className="focus-ring inline-flex items-start gap-3 border-l-2 border-gold px-3 py-1 transition hover:bg-gold/10" href={business.phoneHref}>
+            <FaPhoneAlt className="mt-1 shrink-0 text-gold" aria-hidden="true" />
+            <span><span className="block text-xs font-bold uppercase tracking-[0.1em] text-charcoal/55">Call for guidance</span>{business.phone}</span>
+          </a>
+          <a className="focus-ring inline-flex items-start gap-3 border-l-2 border-gold px-3 py-1 transition hover:bg-gold/10" href={socialLinks.whatsapp} target="_blank" rel="noreferrer">
+            <FaWhatsapp className="mt-1 shrink-0 text-gold" aria-hidden="true" />
+            <span><span className="block text-xs font-bold uppercase tracking-[0.1em] text-charcoal/55">WhatsApp enquiry</span>Message our team</span>
+          </a>
+          <div className="inline-flex items-start gap-3 border-l-2 border-gold px-3 py-1">
+            <FaMapMarkerAlt className="mt-1 shrink-0 text-gold" aria-hidden="true" />
+            <span><span className="block text-xs font-bold uppercase tracking-[0.1em] text-charcoal/55">Visit us in</span>Erode, Tamil Nadu</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-emeraldDeep px-5 py-10 text-ivory sm:px-8 lg:px-12" aria-label="Business information">
+        <div className="container-max grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              className="border-l border-ivory/25 px-5 py-1 text-left"
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.45, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <p className="font-display text-3xl font-bold text-gold sm:text-4xl">{stat.value.toLocaleString('en-IN')}{stat.suffix}</p>
+              <p className="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-ivory/70">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

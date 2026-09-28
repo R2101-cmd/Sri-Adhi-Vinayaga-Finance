@@ -15,6 +15,9 @@ export const business = {
   name: 'Sri Adhi Vinayaga Auto Consulting & Finance',
   shortName: 'Sri Adhi Vinayaga',
   address: '183, Pappathikadu II Street, Municipal Colony Main Road, Erode, Tamil Nadu - 638004',
+  phone: '+91 90428 21165',
+  phoneHref: 'tel:+919042821165',
+  copyrightText: 'Copyright 2026 Sri Adhi Vinayaga Auto Consulting & Finance. All Rights Reserved.',
   copyright: '© 2026 Sri Adhi Vinayaga Auto Consulting & Finance. All Rights Reserved.',
 };
 
@@ -31,6 +34,13 @@ export const socialLinks = {
   facebook: 'https://www.facebook.com/Jagadesh.Finance',
   whatsapp: 'https://wa.me/919042821165',
 };
+
+export const stats = [
+  { label: 'Happy Customers', value: 5000, suffix: '+' },
+  { label: 'Vehicles Financed', value: 3500, suffix: '+' },
+  { label: 'Years Experience', value: 10, suffix: '+' },
+  { label: 'Approval Success Rate', value: 95, suffix: '%' },
+];
 
 export const services = [
   {
@@ -70,20 +80,13 @@ export const services = [
   },
 ];
 
-export const stats = [
-  { label: 'Happy Customers', value: 5000, suffix: '+' },
-  { label: 'Vehicles Financed', value: 3500, suffix: '+' },
-  { label: 'Years Experience', value: 10, suffix: '+' },
-  { label: 'Approval Success Rate', value: 95, suffix: '%' },
-];
-
 export const whyChoose = [
-  'Quick Loan Approval',
-  'Minimal Documentation',
-  'Transparent Process',
-  'Competitive Interest Rates',
-  'Customer-Centric Service',
-  'Trusted Financial Guidance',
+  'Clear eligibility guidance',
+  'Practical document support',
+  'Transparent repayment planning',
+  'Personalised consultation',
+  'Support through the finance process',
+  'Local assistance in Erode',
 ];
 
 export const financeServices = [
@@ -120,13 +123,12 @@ export const financeServices = [
 ];
 
 export const financeFeatures = [
-  'Easy Loan Approval',
-  'Partial Prepayment Options',
-  'Transparent Charges',
-  'Customer-Friendly Repayment Support',
-  'Flexible Loan Structures',
-  'Personalized Consultation',
-  'Gold Loan Guidance',
+  'Eligibility guidance',
+  'Repayment planning',
+  'Document support',
+  'Customer-friendly consultation',
+  'Vehicle finance guidance',
+  'Gold finance guidance',
 ];
 
 export const gallery = [

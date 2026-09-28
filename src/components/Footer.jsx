@@ -54,12 +54,12 @@ export default function Footer() {
           </p>
           <p className="mt-4 flex gap-3 text-ivory/72">
             <FaPhoneAlt className="text-gold" />
-            +91 90428 21165
+            <a className="hover:text-gold" href={business.phoneHref}>{business.phone}</a>
           </p>
         </div>
       </div>
       <div className="container-max mt-10 border-t border-ivory/10 pt-6 text-center text-sm text-ivory/55">
-        {business.copyright}
+        {business.copyrightText}
       </div>
     </footer>
   );

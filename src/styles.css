@@ -27,29 +27,52 @@ body {
 }
 
 .eyebrow {
-  @apply text-sm font-bold uppercase tracking-[0.18em] text-gold;
+  @apply text-xs font-bold uppercase tracking-[0.12em] text-gold;
 }
 
 .glass-nav {
-  background: rgba(250, 249, 246, 0.84);
-  backdrop-filter: blur(18px);
+  background: #faf9f6;
   border-bottom: 1px solid rgba(15, 76, 69, 0.12);
 }
 
-.gold-gradient {
-  background: linear-gradient(135deg, #d4af37, #f3dc88 48%, #a47d16);
-}
-
 .emerald-gradient {
-  background:
-    radial-gradient(circle at 18% 18%, rgba(212, 175, 55, 0.16), transparent 26%),
-    linear-gradient(135deg, #0f4c45 0%, #173c37 52%, #1e1e1e 100%);
+  background: #0f4c45;
 }
 
 .image-overlay {
-  background: linear-gradient(90deg, rgba(15, 76, 69, 0.94), rgba(15, 76, 69, 0.72), rgba(30, 30, 30, 0.28));
+  background: rgba(15, 76, 69, 0.78);
+}
+
+.button-motion {
+  transition-property: transform, box-shadow, background-color, color;
+  transition-duration: 180ms;
+  transition-timing-function: ease-out;
+}
+
+.button-motion:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 18px rgba(15, 76, 69, 0.14);
 }
 
 .focus-ring {
   @apply focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ivory;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .button-motion:hover {
+    transform: none;
+  }
 }

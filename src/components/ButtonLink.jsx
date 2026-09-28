@@ -4,7 +4,7 @@ export default function ButtonLink({ to, children, variant = 'primary' }) {
   const styles =
     variant === 'secondary'
       ? 'border border-ivory/45 bg-ivory/10 text-ivory hover:bg-ivory hover:text-emeraldDeep'
-      : 'gold-gradient text-charcoal shadow-glow hover:-translate-y-0.5';
+      : 'bg-gold text-charcoal shadow-glow hover:-translate-y-0.5';
 
   return (
     <Link

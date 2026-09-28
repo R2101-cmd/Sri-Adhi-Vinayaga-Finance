@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+import SEO from './components/SEO.jsx';
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
@@ -33,8 +34,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-ivory text-charcoal">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus-ring fixed left-4 top-4 z-[60] rounded-md bg-gold px-4 py-3 font-bold text-charcoal">Skip to content</a>
+      <SEO />
       <ScrollToTop />
       <Navbar />
+      <main id="main-content">
       <AnimatePresence mode="wait">
         <Suspense fallback={<PageFallback />}>
           <Routes location={location} key={location.pathname}>
@@ -72,6 +76,7 @@ export default function App() {
           </Routes>
         </Suspense>
       </AnimatePresence>
+      </main>
       <Footer />
     </div>
   );
